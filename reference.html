@@ -6173,7 +6173,7 @@ map.addControl(new MyControl());
 
 <h3>Properties</h3>
 
-<table>
+<table data-id='projection'>
 	<tr>
 		<th>Property</th>
 		<th>Type</th>
@@ -6245,6 +6245,31 @@ map.addControl(new MyControl());
 
 <p>Defines coordinate reference systems for projecting geographical points into pixel (screen) coordinates and back (and to coordinates in other units for WMS services). See <a href="http://en.wikipedia.org/wiki/Coordinate_reference_system">Spatial reference system</a>.</p>
 
+<h3>Properties</h3>
+
+<table data-id='crs'>
+	<tr>
+		<th>Property</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><code>wrapLat</code></td>
+		<td><code>Boolean</code></td>
+		<td>True if coordinates should wrap around when outside the latitude bounds</td>
+	</tr>
+	<tr>
+		<td><code>wrapLng</code></td>
+		<td><code>Boolean</code></td>
+		<td>True if coordinates should wrap around when outside the longitude bounds</td>
+	</tr>
+	<tr>
+		<td><code>infinite</code></td>
+		<td><code>Boolean</code></td>
+		<td>True if the CRS bounds should be ignored; coordinates in an infinite CRS will not be wrapped</td>
+	</tr>
+</table>
+
 <h3>Methods</h3>
 
 <table data-id='crs'>
@@ -6288,12 +6313,12 @@ map.addControl(new MyControl());
 		<td>Returns the scale used when transforming projected coordinates into pixel coordinates for a particular zoom. For example, it returns <code>256 * 2^zoom</code> for Mercator-based CRS.</td>
 	</tr>
 	<tr>
-		<td><code><b>getSize</b>(
+		<td><code><b>getProjectedBounds</b>(
 			<nobr>&lt;Number&gt; <i>zoom</i> )</nobr>
 		</code></td>
 
-		<td><code><a href="#point">Point</a></code></td>
-		<td>Returns the size of the world in pixels for a particular zoom.</td>
+		<td><code><a href="#bounds">Bounds</a></code></td>
+		<td>Returns the projection's bounds scaled and transformed for the provided <code>zoom</code>.</td>
 	</tr>
 </table>
 
